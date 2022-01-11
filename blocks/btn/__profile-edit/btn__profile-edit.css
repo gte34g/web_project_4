@@ -1,0 +1,12 @@
+.btn__profile-edit {
+    background-color: transparent;
+    border: none;
+    cursor: pointer;
+    overflow: hidden;
+    outline: none;
+}
+
+.btn__profile-edit:hover {
+    opacity: 0.5;
+}
+

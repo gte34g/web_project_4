@@ -1,16 +1,34 @@
-# Project 4: Around The U.S.
-
+# [Project 4: Around The U.S.](https://gte34g.github.io/web_project_4/)
 ### Overview
+* Intro
+* Functionality
+* Technology
 
-* Figma
-* Images
+### Intro
+The forth sprint project of Practicum100 using HTML5, CSS3 and JavaScript, I have created a responsive website according the desginer's
+brif. This website can be used on PC monitor, tablets or smartphones. JavaScript allows user to change their name and thier title occupetion
 
-**Figma**
+### Functionality
+This is one-page website not fully functionted yet, some links/buttons might not bring the user to the requested destination, 
+However, user able to use this webpage on there PC monitor, tablet or smartphone, also connecting JS allows the user to change their name, occuption,
+later the user will able to like a photo or add new one. 
 
-* [Link to the project in Figma](https://www.figma.com/file/SurN1jaeEQIhuZEDMhmWWf/Sprint-4-Around-The-U.S.-desktop-mobile?node-id=0%3A1)
 
-**Images**
+### Technology
+* HTML5:
+  * Writing in logical order tags and blocks.
 
-The way you'll do this at work is by exporting images directly from Figma — we recommend doing that to practice more. Don't forget to optimize them [here](https://tinypng.com/), so your project loads faster. 
+* CSS3:
+ 	* Flexbox and Grid
+	* Positioning
+	* @media query
+	* @import query
 
-Have fun with JavaScript!
+* BEM methodology
+	* Nameing classes using BEM
+	* File stracture using BEM.
+
+* JavaScript
+	* Useing function to show/close pop-up window
+	* Showing user's input data on webpage
+	* "Sava" button keep the changes and close window.

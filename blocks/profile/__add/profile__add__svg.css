@@ -1,0 +1,15 @@
+.profile__add__svg {
+    width: 100%;
+    height: auto;
+}
+
+.profile__add__svg:hover {
+    opacity: 0.6;
+}
+
+@media screen and (min-width:320px) and (max-width:600px) {
+    .profile__add__svg {
+        max-width: 282px;
+        width: 100%;
+    }
+}

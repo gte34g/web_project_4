@@ -1,0 +1,16 @@
+.btn__profile-close {
+    max-width: 40px;
+    max-height: 40px;
+    position: absolute;
+    background-color: transparent;
+    border: none;
+    cursor: pointer;
+    overflow: hidden;
+    outline: none;
+    top: -30px;
+    right: -40px;
+}
+
+.btn__profile-close:hover {
+    opacity: 0.6;
+}

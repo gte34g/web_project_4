@@ -1,0 +1,17 @@
+.input__text {
+    font-family: 'Inter';
+    font-weight: 400;
+    font-style: normal;
+    font-size: 14px;
+    line-height: 17px;
+
+    width: 100%;
+    background: transparent;
+    box-shadow: none;
+    border: none;
+    outline: none;
+    font-size: 18px;
+    font-weight: 300;
+    color: #000;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.2);
+}
