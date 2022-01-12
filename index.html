@@ -19,7 +19,7 @@
             <img src="images/user-img.jpg" alt="User's profile image" class="avatar__image">
           </div>
           <div class="profile__info">
-            <div class="profile__info-wrapper">
+            <div class="profile__content">
               <h1 class="profile__name" id="heroName">Jacques Cousteau</h1>
               <button class="btn__profile-edit" id="editButton"> 
                 <img class="profile__edit-svg" src="images/Edit Button.svg" alt="Edit">
@@ -28,15 +28,16 @@
             <p class="profile__title" id="heroTitle">Explorer</p>
           </div>
         </div>
-          <a href="#" class="btn__profie-add">
+        <button class="btn__profile-add">
             <svg width="150" height="50" viewBox="0 0 150 50" fill="none" xmlns="http://www.w3.org/2000/svg" >
               <rect x="1" y="1" width="148" height="48" rx="1" stroke="white" stroke-width="2"/>
               <path d="M86 23.7778H76.2222V14H73.7778V23.7778H64V26.2222H73.7778V36H76.2222V26.2222H86V23.7778Z" fill="white"/>
             </svg>
-          </a>
+        </button>
+          
       </div>
 
-      <div class="popup popup_active" id="popup">
+      <div class="popup popup-active" id="popup">
         <div class="popup__body">
           <div class="popup__content">
             <button type="cancel" class="btn__profile-close">
@@ -46,11 +47,11 @@
             </button>
             <h2 class="popup__header">Edit profile</h2>
             <div class="popup__form">
-              <div class="popup__form-input" >
-                <input type="text" name="userName" class="input__text popup__form__name" id="inputName" placeholder="Full Name" value="Jacques Cousteau">
+              <div class="popup-input" >
+                <input type="text" name="userName" class="input__text" id="inputName" placeholder="Full Name" value="Jacques Cousteau">
               </div>
-              <div class="popup__form-input" >
-                <input type="text" name="userTitle" class="input__text popup__form__title" id="inputTitle" placeholder="About Me" value="Explorer">
+              <div class="popup-input" >
+                <input type="text" name="userTitle" class="input__text" id="inputTitle" placeholder="About Me" value="Explorer">
               </div>
               <button type="submit" value="close" onclick="changeName()" class="btn__profile-save">Save</button>
             </div>

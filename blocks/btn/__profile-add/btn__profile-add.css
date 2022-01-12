@@ -1,17 +1,25 @@
 .btn__profile-add {
+    display: flex;
+    justify-content: center;
     width: 150px;
     height: 50px;
+    background-color: transparent;
+    border: none;
+    cursor: pointer;
 }
 
 .btn__profile-add:hover {
     opacity: 0.6;
 }
 
-
 @media screen and (min-width:320px) and (max-width:600px) {
-    .btn__profile-add {
+    .btn__profile-add{
+        max-height: 50px;
         max-width: 282px;
         width: 100%;
-        height: auto;
+        margin: 19px auto;
+    }
+    .btn__profile-add svg {
+        max-height: 50px;
     }
 }

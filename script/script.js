@@ -7,22 +7,22 @@ let heroTitle = document.querySelector("#heroTitle");
 
 
 function openForm() {
-  showPopup.classList.toggle("popup_active");
+  showPopup.classList.toggle("popup-active");
 }
 
 function hideForm() {
-  closePopup.classList.toggle("popup_active");
+  closePopup.classList.toggle("popup-active");
 }
 popupForm.addEventListener("click", openForm);
 closePopup.addEventListener("click", openForm);
 
 function changeName(evt) {
   
-  let inputName = document.querySelector(".popup__form__name");
-  let inputTitle = document.querySelector(".popup__form__title");
+  let inputName = document.querySelector("#inputName");
+  let inputTitle = document.querySelector("#inputTitle");
   heroName.innerText = inputName.value;
   heroTitle.innerText = inputTitle.value;
-  showPopup.classList.toggle("popup_active");
+  showPopup.classList.toggle("popup-active");
   evt.preventDefault();
 }
 
