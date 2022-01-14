@@ -18,16 +18,14 @@
 @import url(../blocks/profile/__avatar/profile__avatar.css);
 @import url(../blocks/profile/__image/avatar__image.css);
 @import url(../blocks/profile/__title/profile__title.css);
+@import url(../blocks/profile/__icon/profile__icon.css);
 
 
 /* Pop-up */
 @import url(../blocks/popup/popup.css);
-@import url(../blocks/popup/-active/popup-active.css);
-@import url(../blocks/popup/__body/popup__body.css);
+@import url(../blocks/popup/_active/popup_active.css);
 @import url(../blocks/popup/__content/popup__content.css);
-@import url(../blocks/popup/__form/popup__form.css);
 @import url(../blocks/popup/__header/popup__header.css);
-@import url(../blocks/popup/-input/popup-input.css);
 
 /* Input */
 @import url(../blocks/input/__text/input__text.css);

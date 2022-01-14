@@ -1,29 +1,27 @@
-let popupForm = document.querySelector('#editButton');
-let showPopup = document.querySelector('#popup');
-let closePopup = document.querySelector('.btn__profile-close');
-let btnSave = document.querySelector(".btn__profile-save");
+let popupForm = document.querySelector("#editButton");
+let showPopup = document.querySelector("#popup");
+let closePopup = document.querySelector(".btn__profile-close");
 let heroName = document.querySelector("#heroName");
 let heroTitle = document.querySelector("#heroTitle");
-
+let form = document.querySelector(".popup__content");
 
 function openForm() {
-  showPopup.classList.toggle("popup-active");
+  showPopup.classList.remove("popup_active");
 }
 
 function hideForm() {
-  closePopup.classList.toggle("popup-active");
+  showPopup.classList.add("popup_active");
 }
-popupForm.addEventListener("click", openForm);
-closePopup.addEventListener("click", openForm);
 
 function changeName(evt) {
-  
   let inputName = document.querySelector("#inputName");
   let inputTitle = document.querySelector("#inputTitle");
   heroName.innerText = inputName.value;
   heroTitle.innerText = inputTitle.value;
-  showPopup.classList.toggle("popup-active");
+  showPopup.classList.add("popup_active");
   evt.preventDefault();
 }
 
-btnSave.addEventListener("submit", changeName);
+popupForm.addEventListener("click", openForm);
+closePopup.addEventListener("click", hideForm);
+form.addEventListener("submit", changeName);
