@@ -14,6 +14,7 @@
     .header__logo {
         max-width: 126px;
         max-height: 24px;
+        margin-bottom: 32px;
     }
 }
 

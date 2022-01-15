@@ -17,5 +17,7 @@
     .profile__name{
         font-size: 22px;
         margin-right: 10px;
+        white-space: pre-line;
+        max-width: 196px;
     }
 }

@@ -15,30 +15,32 @@
     <main class="main">
       <section class="profile-wrapper"> 
         <div class="profile">
-            <img src="images/user-img.jpg" alt="User's profile image" class="avatar__image">
+            <img src="images/user-img.jpg" alt="User's profile image" class="profile__image">
           <div class="profile__info">
             <div class="profile__content">
               <h1 class="profile__name" id="heroName">Jacques Cousteau</h1>
-              <button type="submit" class="btn__profile-edit" id="editButton"> 
+              <button type="button" class="profile__btn_edit" id="editButton"> 
                 <img class="profile__icon" src="images/Edit-Button.svg" alt="Edit">
               </button>
             </div>
             <p class="profile__title" id="heroTitle">Explorer</p>
           </div>
         </div>
-        <button type="submit" class="btn__profile-add">
+        <button type="button" class="profile__btn_add">
           <img src="images/plusButton.svg" alt="A white plus sign">
         </button>          
       </section>
 
       <div class="popup popup_active" id="popup">
-            <form class="popup__content">
-              <button type="button" onclick="hideForm()" class="btn__profile-close" >&#10006</button>
-              <h2 class="popup__header">Edit profile</h2>
-              <input type="text" name="userName" class="input__text" id="inputName" placeholder="Full Name" value="Jacques Cousteau">
-              <input type="text" name="userTitle" class="input__text" id="inputTitle" placeholder="About Me" value="Explorer">
-              <button type="button" onclick="changeName()" class="btn__profile-save">Save</button>
-            </form>        
+            <div class="popup__content">
+              <form class="popup__form" name="text">
+                <button type="button" class="profile__btn_close" >&#10006;</button>
+                <h2 class="popup__header">Edit profile</h2>
+                <input type="text" name="userName" class="popup__input__text" id="inputName" placeholder="Full Name" value="Jacques Cousteau">
+                <input type="text" name="userTitle" class="popup__input__text" id="inputTitle" placeholder="About Me" value="Explorer">
+                <button type="submit" class="profile__btn_save">Save</button>
+              </form>
+            </div>        
       </div>
 
       <section class="photo-grid">
@@ -46,7 +48,7 @@
           <img src="images/kirill-pershin-1088404-unsplash.png" alt="Yosemite Valley" class="photo-grid__img">
           <div class="photo-grid__info">
             <h3 class="photo-grid__places">Yosemite Valley</h3>
-            <button type="submit" class="btn__hart">
+            <button type="button" class="photo-grid__btn__hart">
               <img src="images/hart.svg" alt="Hart button">
             </button>
           </div>
@@ -55,7 +57,7 @@
           <img src="images/kirill-pershin-1404681-unsplash.png" alt="Lake Louise" class="photo-grid__img">
           <div class="photo-grid__info">
             <h3 class="photo-grid__places">Lake Louise</h3>
-            <button type="submit" class="btn__hart">
+            <button type="button" class="photo-grid__btn__hart">
               <img src="images/hart.svg" alt="Hart button">
             </button>
           </div>
@@ -64,7 +66,7 @@
           <img src="images/kirill-pershin-1556355-unsplash.png" alt="Bald Mountains" class="photo-grid__img">
           <div class="photo-grid__info">
             <h3 class="photo-grid__places">Bald Mountains</h3>
-            <button type="submit" class="btn__hart">
+            <button type="button" class="photo-grid__btn__hart">
               <img src="images/hart.svg" alt="Hart button">
             </button>
           </div>
@@ -73,7 +75,7 @@
           <img src="images/kirill-pershin-1404681-unsplash-1.png" alt="Latemar" class="photo-grid__img">
           <div class="photo-grid__info">
             <h3 class="photo-grid__places">Latemar</h3>
-            <button type="submit" class="btn__hart">
+            <button type="button" class="photo-grid__btn__hart">
               <img src="images/hart.svg" alt="Hart button">
             </button>
           </div>
@@ -82,7 +84,7 @@
           <img src="images/kirill-pershin-1556355-unsplash-1.png" alt="Vanoise Nationa" class="photo-grid__img">
           <div class="photo-grid__info">
             <h3 class="photo-grid__places">Vanoise Nationa And Hidden Text</h3>
-            <button type="submit" class="btn__hart">
+            <button type="button" class="photo-grid__btn__hart">
               <img src="images/hart.svg" alt="Hart button">
             </button>
           </div>
@@ -91,7 +93,7 @@
           <img src="images/kirill-pershin-1088404-unsplash-1.png" alt="Lago di Braies" class="photo-grid__img">
           <div class="photo-grid__info">
             <h3 class="photo-grid__places">Lago di Braies</h3>
-            <button type="submit" class="btn__hart">
+            <button type="button" class="photo-grid__btn__hart">
               <img src="images/hart.svg" alt="Hart button">
             </button>
           </div>
@@ -102,7 +104,7 @@
     <footer class="footer">
       <p class="footer__text">&copy; 2021 Around The U.S.</p>
     </footer>
-    
+
     <script src="script/script.js"></script>
   </body>
 </html>

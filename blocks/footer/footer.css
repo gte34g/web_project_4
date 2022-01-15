@@ -1,6 +1,4 @@
 .footer {
-    display: flex;
-    justify-content: start;
     max-width: 318px;
     margin: 68px 0 60px 200px;
 }
@@ -14,6 +12,8 @@
 @media screen and (min-width:320px) and (max-width:600px) {
     .footer {
         max-width: 282px;
-        margin: 50px 0 36px 27px;
+        margin: 50px auto 36px;
+        height: 14px;
+        padding: 0;
     }
 }

@@ -15,10 +15,13 @@
 @import url(../blocks/profile/__content/profile__content.css);
 @import url(../blocks/profile/__info/profile__info.css);
 @import url(../blocks/profile/__name/profile__name.css);
-@import url(../blocks/profile/__avatar/profile__avatar.css);
-@import url(../blocks/profile/__image/avatar__image.css);
+@import url(../blocks/profile/__image/profile__image.css);
 @import url(../blocks/profile/__title/profile__title.css);
 @import url(../blocks/profile/__icon/profile__icon.css);
+@import url(../blocks/profile/__btn/_save/profile__btn_save.css);
+@import url(../blocks/profile/__btn/_close/profile__btn_close.css);
+@import url(../blocks/profile/__btn/_add/profile__btn_add.css);
+@import url(../blocks/profile/__btn/_edit/profile__btn_edit.css);
 
 
 /* Pop-up */
@@ -26,9 +29,7 @@
 @import url(../blocks/popup/_active/popup_active.css);
 @import url(../blocks/popup/__content/popup__content.css);
 @import url(../blocks/popup/__header/popup__header.css);
-
-/* Input */
-@import url(../blocks/input/__text/input__text.css);
+@import url(../blocks/popup/__input/popup__input__text.css);
 
 /* Photo Grid */
 @import url(../blocks/photo-grid/photo-grid.css);
@@ -36,13 +37,7 @@
 @import url(../blocks/photo-grid/__img/photo-grid__img.css);
 @import url(../blocks/photo-grid/__places/photo-grid__places.css);
 @import url(../blocks/photo-grid/__info/photo-grid__info.css);
-
-/* Buttons */
-@import url(../blocks/btn/__hart/btn__hart.css);
-@import url(../blocks/btn/__profile-close/btn__profile-close.css);
-@import url(../blocks/btn/__profile-edit/btn__profile-edit.css);
-@import url(../blocks/btn/__profile-save/btn__profile-save.css);
-@import url(../blocks/btn/__profile-add/btn__profile-add.css);
+@import url(../blocks/photo-grid/__btn/photo-grid__btn__hart.css);
 
 /* Footer */
 @import url(../blocks/footer/footer.css);

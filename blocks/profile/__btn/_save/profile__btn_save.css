@@ -1,4 +1,4 @@
-.btn__profile-save{
+.profile__btn_save{
     width: 358px;
     height: 50.15px;
     margin: 0 auto 36.5px;
@@ -14,12 +14,12 @@
     cursor: pointer;
 }
 
-.btn__profile-save:hover {
+.profile__btn_save:hover {
     opacity: 0.8;
 }
 
 @media screen and (min-width:320px) and (max-width:900px) {
-    .btn__profile-save {
+    .profile__btn_save {
         width: 238px;
         height: 46px;
         margin: 0 22px 25px;
