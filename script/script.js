@@ -29,10 +29,3 @@ function changeName(evt) {
 popupForm.addEventListener("click", openForm);
 closePopup.addEventListener("click", hideForm);
 form.addEventListener("submit", changeName);
-
-
-  // inputName.addEventListener("change", openForm);
-  // let inputName = document.querySelector("#inputName");
-  // let inputTitle = document.querySelector("#inputTitle");
-  // heroName.textContent = inputName.target.value;
-  // heroTitle.textContent = inputTitle.target.value;
