@@ -1,11 +1,10 @@
-.profile__btn_edit {
+.photo-grid__btn-hart{
     background-color: transparent;
     border: none;
     cursor: pointer;
-    overflow: hidden;
     outline: none;
 }
 
-.profile__btn_edit:hover {
-    opacity: 0.6;
+.photo-grid__btn-hart:hover {
+    opacity: 0.5;
 }

@@ -1,9 +1,8 @@
-.profile__btn_save{
+.popup__btn-submit{
     width: 358px;
     height: 50.15px;
     margin: 0 auto 36.5px;
     border: 0;
-    padding: 0;
     border-radius: 2px;
     background: #000;
     color: #fff;
@@ -11,15 +10,14 @@
     font-weight: 400;
     font-style: normal;
     font-size: 18px;
-    cursor: pointer;
 }
 
-.profile__btn_save:hover {
+.popup__btn-submit:hover {
     opacity: 0.8;
 }
 
 @media screen and (min-width:320px) and (max-width:900px) {
-    .profile__btn_save {
+    .popup__btn-submit {
         width: 238px;
         height: 46px;
         margin: 0 22px 25px;
