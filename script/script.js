@@ -61,8 +61,8 @@ const initialCards = [
 ];
 
 
-const addNewPlaceBtn = document.querySelector(".profile__btn-add");
-const closeNewPlace = document.querySelector(".popup__btn__close_new-place");
+const addNewPlaceBtn = document.querySelector(".profile__btn_add");
+const closeNewPlace = document.querySelector(".popup__btn-close_type_new-place");
 const newPlacePopup = document.querySelector(".popup_add_place");
 const createNewPlace = document.querySelector(".popup__btn-create");
 
@@ -97,7 +97,7 @@ function createPlaceCard(card) {
   });
 
   cardLike.addEventListener("click", () => {
-    cardLike.classList.toggle("hart_active");
+    cardLike.classList.toggle("place__btn-hart_active");
   });
 
   cardDel.addEventListener("click", (evt) => {

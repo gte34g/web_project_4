@@ -18,7 +18,7 @@
 @import url(../blocks/profile/__image/profile__image.css);
 @import url(../blocks/profile/__title/profile__title.css);
 @import url(../blocks/profile/__icon/profile__icon.css);
-@import url(../blocks/profile/__btn-add/profile__btn-add.css);
+@import url(../blocks/profile/__btn_add/profile__btn_add.css);
 @import url(../blocks/profile/__btn-edit/profile__btn-edit.css);
 
 
@@ -43,8 +43,8 @@
 @import url(../blocks/place/__info/place__info.css);
 @import url(../blocks/place/__image/place__image.css);
 @import url(../blocks/place/__btn-trash/place__btn-trash.css);
-@import url(../blocks/place/__btn-hart/_active/hart_active.css);
 @import url(../blocks/place/__btn-hart/place__btn-hart.css);
+@import url(../blocks/place/__btn-hart/_active/place__btn-hart_active.css);
 
 /* Button */
 @import url(../blocks/button/button.css);

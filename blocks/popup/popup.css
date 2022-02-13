@@ -16,3 +16,9 @@
     justify-content: center;
     pointer-events: none;
 }
+
+@media screen and (max-width: 320px) {
+    .popup {
+        margin: ;
+    }
+}
