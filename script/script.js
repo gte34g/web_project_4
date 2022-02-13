@@ -66,7 +66,7 @@ const closeNewPlace = document.querySelector(".popup__btn-close_type_new-place")
 const newPlacePopup = document.querySelector(".popup_add_place");
 const createNewPlace = document.querySelector(".popup__btn-create");
 
-const newPlaceForm = document.querySelector(".poupup__places");
+const newPlaceForm = document.querySelector("#newPlaceForm");
 const cardTemplate = document.querySelector("#place-template").content;
 const cardPreview = document.querySelector(".popup-preview");
 const cardPreviewClose = document.querySelector(".popup__close-preview");
