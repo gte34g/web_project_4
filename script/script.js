@@ -61,15 +61,15 @@ const initialCards = [
 ];
 
 
-const addNewPlaceBtn = document.querySelector(".profile__btn_add");
+const addNewPlaceBtn = document.querySelector(".profile__btn_type_add");
 const closeNewPlace = document.querySelector(".popup__btn-close_type_new-place");
 const newPlacePopup = document.querySelector(".popup_add_place");
 const createNewPlace = document.querySelector(".popup__btn-create");
 
-const newPlaceForm = document.querySelector(".poupup__form_places");
+const newPlaceForm = document.querySelector(".poupup__form-places");
 const cardTemplate = document.querySelector("#place-template").content;
 const cardPreview = document.querySelector(".popup-preview");
-const cardPreviewClose = document.querySelector(".popup__close_preview");
+const cardPreviewClose = document.querySelector(".popup__close_type_preview");
 const cardName = document.querySelector("#inputTitlePlace");
 const cardLink = document.querySelector("#inputLinkPlace");
 
