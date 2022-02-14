@@ -1,32 +1,35 @@
-const popupForm = document.querySelector("#editButton");
-const showPopup = document.querySelector("#popup");
+const editProfileButton = document.querySelector("#editButton");
+const profilePopup = document.querySelector(".popup");
 const closePopup = document.querySelector(".popup__btn-close");
-const heroName = document.querySelector("#heroName");
-const heroTitle = document.querySelector("#heroTitle");
 const form = document.querySelector(".popup__content");
 
-function openForm() {
-  let inputName = document.querySelector("#inputName");
-  let inputTitle = document.querySelector("#inputTitle");
-  inputName.value = heroName.textContent;
-  inputTitle.value = heroTitle.textContent;
-  showPopup.classList.add("popup_active");
-}
+const heroName = document.querySelector("#heroName");
+const heroTitle = document.querySelector("#heroTitle");
+const inputName = document.querySelector("#inputName");
+const inputTitle = document.querySelector("#inputTitle");
 
+function openForm() {
+  profilePopup.classList.add("popup_active");
+}
 function hideForm() {
-  showPopup.classList.remove("popup_active");
+  profilePopup.classList.remove("popup_active");
 }
 
 function changeName(evt) {
-  let inputName = document.querySelector("#inputName");
-  let inputTitle = document.querySelector("#inputTitle");
   heroName.textContent = inputName.value;
   heroTitle.textContent = inputTitle.value;
-  showPopup.classList.remove("popup_active");
+  profilePopup.classList.remove("popup_active");
   evt.preventDefault();
 }
 
-popupForm.addEventListener("click", openForm);
+function heroNameInForm(evt) {
+  evt.preventDefault();
+  inputName.value = heroName.textContent;
+  inputTitle.value = heroTitle.textContent;
+  openForm(profilePopup);
+}
+
+editProfileButton.addEventListener("click", heroNameInForm);
 closePopup.addEventListener("click", hideForm);
 form.addEventListener("submit", changeName);
 
@@ -61,10 +64,10 @@ const initialCards = [
 ];
 
 
-const addNewPlaceBtn = document.querySelector(".profile__btn-add");
-const closeNewPlace = document.querySelector(".popup__btn-close_type_new-place");
+const addNewPlaceButton = document.querySelector(".profile__btn-add");
+const closeNewPlaceButton = document.querySelector(".popup__btn-close_type_new-place");
 const newPlacePopup = document.querySelector(".popup_add_place");
-const createNewPlace = document.querySelector(".popup__btn-create");
+const createNewPlaceButton = document.querySelector(".popup__btn-create");
 
 const newPlaceForm = document.querySelector("#newPlaceForm");
 const cardTemplate = document.querySelector("#place-template").content;
@@ -74,9 +77,10 @@ const cardName = document.querySelector("#inputTitlePlace");
 const cardLink = document.querySelector("#inputLinkPlace");
 
 const placeList = document.querySelector(".photo-grid");
-const largeImage = document.querySelector(".popup_active")
+const largeImagePreview = document.querySelector(".popup_active")
 
-function closePopups(popup) {
+
+function controlPopup(popup) {
   popup.classList.toggle("popup_active");
 }
 
@@ -111,8 +115,8 @@ function renderCard(card) {
   placeList.prepend(createPlaceCard(card));
 }
 
-initialCards.forEach((crad) => {
-  renderCard(crad);
+initialCards.forEach((card) => {
+  renderCard(card);
 });
 
 newPlaceForm.addEventListener("submit", (evt) => {
@@ -122,12 +126,12 @@ newPlaceForm.addEventListener("submit", (evt) => {
     link: cardLink.value,
   };
   renderCard(card);
-  hideForm(newPlacePopup);
+  controlPopup(newPlacePopup);
   newPlaceForm.reset();
 });
 
 const openImage = (card) => {
-  closePopups(cardPreview);
+  controlPopup(cardPreview);
   const popupImage = cardPreview.querySelector(".popup__img");
   const popupText = cardPreview.querySelector(".popup__description");
   popupImage.src = card.link;
@@ -136,11 +140,11 @@ const openImage = (card) => {
 }
 
 cardPreviewClose.addEventListener("click", () => {
-  closePopups(cardPreview);
+  controlPopup(cardPreview);
 });
-addNewPlaceBtn.addEventListener("click", () => {
-  closePopups(newPlacePopup);
+addNewPlaceButton.addEventListener("click", () => {
+  controlPopup(newPlacePopup);
 });
-closeNewPlace.addEventListener("click", () => {
-  closePopups(newPlacePopup);
+closeNewPlaceButton.addEventListener("click", () => {
+  controlPopup(newPlacePopup);
 });
