@@ -31,4 +31,8 @@ later the user will able to like a photo or add new one.
 * JavaScript
 	* Useing function to show/close pop-up window
 	* Showing user's input data on webpage
-	* "Sava" button keep the changes and close window.
+	* "Save" button keeps the changes and close window.
+	* Adding new place card.
+	* Delete a place.
+	* "Like" a place by pressing the hart button.
+

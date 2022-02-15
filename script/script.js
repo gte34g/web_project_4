@@ -1,37 +1,37 @@
 const editProfileButton = document.querySelector("#editButton");
 const profilePopup = document.querySelector(".popup");
-const closePopup = document.querySelector(".popup__btn-close");
-const form = document.querySelector(".popup__content");
+const closeProfilePopupButton = document.querySelector(".popup__btn-close");
+const editProfileForm = document.querySelector(".popup__content");
 
 const heroName = document.querySelector("#heroName");
 const heroTitle = document.querySelector("#heroTitle");
 const inputName = document.querySelector("#inputName");
 const inputTitle = document.querySelector("#inputTitle");
 
-function openForm() {
-  profilePopup.classList.add("popup_active");
+function openPopup(popup) {
+  popup.classList.add("popup_active");
 }
-function hideForm() {
-  profilePopup.classList.remove("popup_active");
+function closePopup(popup) {
+  popup.classList.remove("popup_active");
 }
 
-function changeName(evt) {
+function saveProfile(evt) {
   heroName.textContent = inputName.value;
   heroTitle.textContent = inputTitle.value;
-  profilePopup.classList.remove("popup_active");
+  closePopup(profilePopup);
   evt.preventDefault();
 }
 
-function heroNameInForm(evt) {
+function openProfilePopup(evt) {
   evt.preventDefault();
   inputName.value = heroName.textContent;
   inputTitle.value = heroTitle.textContent;
-  openForm(profilePopup);
+  openPopup(profilePopup);
 }
 
 editProfileButton.addEventListener("click", heroNameInForm);
-closePopup.addEventListener("click", hideForm);
-form.addEventListener("submit", changeName);
+closeProfilePopupButton.addEventListener("click", () => closePopup(profilePopup));
+editProfileForm.addEventListener("submit", saveProfile);
 
 
 // Sprint 5 //
@@ -79,11 +79,6 @@ const cardLink = document.querySelector("#inputLinkPlace");
 const placeList = document.querySelector(".photo-grid");
 const largeImagePreview = document.querySelector(".popup_active")
 
-
-function controlPopup(popup) {
-  popup.classList.toggle("popup_active");
-}
-
 function createPlaceCard(card) {
   const cardElement = cardTemplate.cloneNode(true);
   const cardImg = cardElement.querySelector(".place__image");
@@ -126,12 +121,12 @@ newPlaceForm.addEventListener("submit", (evt) => {
     link: cardLink.value,
   };
   renderCard(card);
-  controlPopup(newPlacePopup);
+  closePopup(newPlacePopup);
   newPlaceForm.reset();
 });
 
 const openImage = (card) => {
-  controlPopup(cardPreview);
+  openPopup(cardPreview);
   const popupImage = cardPreview.querySelector(".popup__img");
   const popupText = cardPreview.querySelector(".popup__description");
   popupImage.src = card.link;
@@ -140,11 +135,11 @@ const openImage = (card) => {
 }
 
 cardPreviewClose.addEventListener("click", () => {
-  controlPopup(cardPreview);
+  closePopup(cardPreview);
 });
 addNewPlaceButton.addEventListener("click", () => {
-  controlPopup(newPlacePopup);
+  openPopup(newPlacePopup);
 });
 closeNewPlaceButton.addEventListener("click", () => {
-  controlPopup(newPlacePopup);
+  closePopup(newPlacePopup);
 });
