@@ -29,7 +29,7 @@ function openProfilePopup(evt) {
   openPopup(profilePopup);
 }
 
-editProfileButton.addEventListener("click", heroNameInForm);
+editProfileButton.addEventListener("click", openProfilePopup);
 closeProfilePopupButton.addEventListener("click", () => closePopup(profilePopup));
 editProfileForm.addEventListener("submit", saveProfile);
 
