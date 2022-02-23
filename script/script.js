@@ -8,12 +8,35 @@ const heroTitle = document.querySelector("#heroTitle");
 const inputName = document.querySelector("#inputName");
 const inputTitle = document.querySelector("#inputTitle");
 
+const addNewPlaceButton = document.querySelector(".profile__btn-add");
+const closeNewPlaceButton = document.querySelector(".popup__btn-close_type_new-place");
+const newPlacePopup = document.querySelector(".popup_add_place");
+const createNewPlaceButton = document.querySelector(".popup__btn-create");
+
+const newPlaceForm = document.querySelector("#newPlaceForm");
+const cardTemplate = document.querySelector("#place-template").content;
+const cardPreview = document.querySelector(".popup-preview");
+const cardPreviewClose = document.querySelector(".popup__close-preview");
+const cardName = document.querySelector("#inputTitlePlace");
+const cardLink = document.querySelector("#inputLinkPlace");
+
+const placeList = document.querySelector(".photo-grid");
+const largeImagePreview = document.querySelector(".popup_active");
+
 function openPopup(popup) {
   popup.classList.add("popup_active");
+  popup.addEventListener("click", mouseClickOnOverlay);
+  document.addEventListener("keydown", pressEscKey);
 }
 function closePopup(popup) {
   popup.classList.remove("popup_active");
+  popup.removeEventListener("click", mouseClickOnOverlay);
+  document.removeEventListener("keydown", pressEscKey);
 }
+
+profilePopup.addEventListener("submit", function (evt) {
+  evt.preventDefault();
+});
 
 function saveProfile(evt) {
   heroName.textContent = inputName.value;
@@ -64,20 +87,7 @@ const initialCards = [
 ];
 
 
-const addNewPlaceButton = document.querySelector(".profile__btn-add");
-const closeNewPlaceButton = document.querySelector(".popup__btn-close_type_new-place");
-const newPlacePopup = document.querySelector(".popup_add_place");
-const createNewPlaceButton = document.querySelector(".popup__btn-create");
 
-const newPlaceForm = document.querySelector("#newPlaceForm");
-const cardTemplate = document.querySelector("#place-template").content;
-const cardPreview = document.querySelector(".popup-preview");
-const cardPreviewClose = document.querySelector(".popup__close-preview");
-const cardName = document.querySelector("#inputTitlePlace");
-const cardLink = document.querySelector("#inputLinkPlace");
-
-const placeList = document.querySelector(".photo-grid");
-const largeImagePreview = document.querySelector(".popup_active")
 
 function createPlaceCard(card) {
   const cardElement = cardTemplate.cloneNode(true);
@@ -143,3 +153,21 @@ addNewPlaceButton.addEventListener("click", () => {
 closeNewPlaceButton.addEventListener("click", () => {
   closePopup(newPlacePopup);
 });
+
+//////////////////////////////////
+//  Mouse Click on Background  //
+////////////////////////////////
+function mouseClickOnOverlay(e) {
+  if (e.target.classList.contains("popup")) {
+    closePopup(e.target);
+  }
+}
+
+/////////////////////////////////
+//         Esc button         //
+///////////////////////////////
+function pressEscKey(e) {
+  if (e.key === "Escape") {
+    closePopup(document.querySelector(".popup_active"));
+  }
+}
