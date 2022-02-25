@@ -5,8 +5,8 @@ const editProfileForm = document.querySelector(".popup__content");
 
 const heroName = document.querySelector("#heroName");
 const heroTitle = document.querySelector("#heroTitle");
-const inputName = document.querySelector("#inputName");
-const inputTitle = document.querySelector("#inputTitle");
+const inputName = document.querySelector("#input-name");
+const inputTitle = document.querySelector("#input-about");
 
 const addNewPlaceButton = document.querySelector(".profile__btn-add");
 const closeNewPlaceButton = document.querySelector(".popup__btn-close_type_new-place");
@@ -17,8 +17,8 @@ const newPlaceForm = document.querySelector("#newPlaceForm");
 const cardTemplate = document.querySelector("#place-template").content;
 const cardPreview = document.querySelector(".popup-preview");
 const cardPreviewClose = document.querySelector(".popup__close-preview");
-const cardName = document.querySelector("#inputTitlePlace");
-const cardLink = document.querySelector("#inputLinkPlace");
+const cardName = document.querySelector("#input-place");
+const cardLink = document.querySelector("#input-url");
 
 const placeList = document.querySelector(".photo-grid");
 const largeImagePreview = document.querySelector(".popup_active");
@@ -55,9 +55,6 @@ function openProfilePopup(evt) {
 editProfileButton.addEventListener("click", openProfilePopup);
 closeProfilePopupButton.addEventListener("click", () => closePopup(profilePopup));
 editProfileForm.addEventListener("submit", saveProfile);
-
-
-// Sprint 5 //
 
 const initialCards = [
   {

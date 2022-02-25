@@ -35,4 +35,5 @@ later the user will able to like a photo or add new one.
 	* Adding new place card.
 	* Delete a place.
 	* "Like" a place by pressing the hart button.
+	* Form validation
 
