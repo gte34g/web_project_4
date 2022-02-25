@@ -1,7 +1,7 @@
 const editProfileButton = document.querySelector("#editButton");
-const profilePopup = document.querySelector(".popup");
-const closeProfilePopupButton = document.querySelector(".popup__btn-close");
-const editProfileForm = document.querySelector(".popup__content");
+const profilePopup = document.querySelector("#popup");
+const closeProfilePopupButton = profilePopup.querySelector(".popup__btn-close");
+const editProfileForm = profilePopup.querySelector(".popup__form");
 
 const heroName = document.querySelector("#heroName");
 const heroTitle = document.querySelector("#heroTitle");
@@ -23,20 +23,19 @@ const cardLink = document.querySelector("#input-url");
 const placeList = document.querySelector(".photo-grid");
 const largeImagePreview = document.querySelector(".popup_active");
 
+const popupImage = cardPreview.querySelector(".popup__img");
+const popupText = cardPreview.querySelector(".popup__description");
+
 function openPopup(popup) {
   popup.classList.add("popup_active");
   popup.addEventListener("click", mouseClickOnOverlay);
-  document.addEventListener("keydown", pressEscKey);
+  document.addEventListener("keydown", handleEscKey);
 }
 function closePopup(popup) {
   popup.classList.remove("popup_active");
   popup.removeEventListener("click", mouseClickOnOverlay);
-  document.removeEventListener("keydown", pressEscKey);
+  document.removeEventListener("keydown", handleEscKey);
 }
-
-profilePopup.addEventListener("submit", function (evt) {
-  evt.preventDefault();
-});
 
 function saveProfile(evt) {
   heroName.textContent = inputName.value;
@@ -46,7 +45,6 @@ function saveProfile(evt) {
 }
 
 function openProfilePopup(evt) {
-  evt.preventDefault();
   inputName.value = heroName.textContent;
   inputTitle.value = heroTitle.textContent;
   openPopup(profilePopup);
@@ -82,9 +80,6 @@ const initialCards = [
     link: "https://code.s3.yandex.net/web-code/lago.jpg",
   },
 ];
-
-
-
 
 function createPlaceCard(card) {
   const cardElement = cardTemplate.cloneNode(true);
@@ -128,14 +123,13 @@ newPlaceForm.addEventListener("submit", (evt) => {
     link: cardLink.value,
   };
   renderCard(card);
+  
   closePopup(newPlacePopup);
   newPlaceForm.reset();
 });
 
 const openImage = (card) => {
   openPopup(cardPreview);
-  const popupImage = cardPreview.querySelector(".popup__img");
-  const popupText = cardPreview.querySelector(".popup__description");
   popupImage.src = card.link;
   popupImage.alt = card.name;
   popupText.textContent = card.name;
@@ -149,6 +143,7 @@ addNewPlaceButton.addEventListener("click", () => {
 });
 closeNewPlaceButton.addEventListener("click", () => {
   closePopup(newPlacePopup);
+  newPlaceForm.reset();
 });
 
 //////////////////////////////////
@@ -163,7 +158,7 @@ function mouseClickOnOverlay(e) {
 /////////////////////////////////
 //         Esc button         //
 ///////////////////////////////
-function pressEscKey(e) {
+function handleEscKey(e) {
   if (e.key === "Escape") {
     closePopup(document.querySelector(".popup_active"));
   }
