@@ -28,12 +28,12 @@ const popupText = cardPreview.querySelector(".popup__description");
 
 function openPopup(popup) {
   popup.classList.add("popup_active");
-  popup.addEventListener("click", mouseClickOnOverlay);
+  popup.addEventListener("click", handleOverlayClick);
   document.addEventListener("keydown", handleEscKey);
 }
 function closePopup(popup) {
   popup.classList.remove("popup_active");
-  popup.removeEventListener("click", mouseClickOnOverlay);
+  popup.removeEventListener("click", handleOverlayClick);
   document.removeEventListener("keydown", handleEscKey);
 }
 
@@ -149,7 +149,7 @@ closeNewPlaceButton.addEventListener("click", () => {
 //////////////////////////////////
 //  Mouse Click on Background  //
 ////////////////////////////////
-function mouseClickOnOverlay(e) {
+function handleOverlayClick(e) {
   if (e.target.classList.contains("popup")) {
     closePopup(e.target);
   }
