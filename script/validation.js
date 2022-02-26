@@ -35,6 +35,8 @@ function toggleButtonState(inputs, button, settings) {
   }
 }
 
+
+
 function enableValidation(settings) {
   const {formSelector, inputSelector, submitButtonSelector, ...rest} = settings
   const forms = [...document.querySelectorAll(formSelector)];
@@ -54,7 +56,14 @@ function enableValidation(settings) {
   })
 }
 
-const config = {
+function checkInitialFormValidity(formSelector, settings) {
+  const input = [...formSelector.querySelectorAll(settings.inputSelector)];
+  const button = formSelector.querySelector(settings.submitButtonSelector);
+
+  toggleButtonState(input, button, settings);
+}
+
+const settings = {
   formSelector: ".popup__form",
   inputSelector: ".popup__input-text",
   submitButtonSelector: ".popup__btn",
@@ -63,4 +72,4 @@ const config = {
   errorMessage: "popup__input-error_active",
 };
 
-enableValidation(config);
+enableValidation(settings);

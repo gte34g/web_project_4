@@ -47,6 +47,7 @@ function saveProfile(evt) {
 function openProfilePopup(evt) {
   inputName.value = heroName.textContent;
   inputTitle.value = heroTitle.textContent;
+  checkInitialFormValidity(newPlacePopup.querySelector("form"), settings);
   openPopup(profilePopup);
 }
 
@@ -122,10 +123,11 @@ newPlaceForm.addEventListener("submit", (evt) => {
     name: cardName.value,
     link: cardLink.value,
   };
+  newPlaceForm.reset();
   renderCard(card);
   
   closePopup(newPlacePopup);
-  newPlaceForm.reset();
+  
 });
 
 const openImage = (card) => {
@@ -139,11 +141,11 @@ cardPreviewClose.addEventListener("click", () => {
   closePopup(cardPreview);
 });
 addNewPlaceButton.addEventListener("click", () => {
+  checkInitialFormValidity(newPlacePopup.querySelector("form"), settings);
   openPopup(newPlacePopup);
 });
 closeNewPlaceButton.addEventListener("click", () => {
   closePopup(newPlacePopup);
-  newPlaceForm.reset();
 });
 
 //////////////////////////////////
