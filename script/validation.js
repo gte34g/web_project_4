@@ -1,19 +1,19 @@
-function showInputError(input, settings) {
-  const { inputErrorClass } = settings;
-  const error = input.validationMessage
-  const errorElement = document.querySelector(`#${input.id}-error`)
-  errorElement.textContent = error
+// function showInputError(input, settings) {
+//   const { inputErrorClass } = settings;
+//   const error = input.validationMessage
+//   const errorElement = document.querySelector(`#${input.id}-error`)
+//   errorElement.textContent = error
 
-  input.classList.add(inputErrorClass);
-}
+//   input.classList.add(inputErrorClass);
+// }
 
-function hideInputError(input, settings) {
-  const { inputErrorClass } = settings;
-  const errorElement = document.querySelector(`#${input.id}-error`)
-  errorElement.textContent = ''
+// function hideInputError(input, settings) {
+//   const { inputErrorClass } = settings;
+//   const errorElement = document.querySelector(`#${input.id}-error`)
+//   errorElement.textContent = ''
 
-  input.classList.remove(inputErrorClass);
-}
+//   input.classList.remove(inputErrorClass);
+// }
 
 const checkInputValidity = (input, settings) => {
   if (input.validity.valid) {
