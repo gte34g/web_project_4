@@ -16,7 +16,7 @@ class Card {
     return document.querySelector(this._cardSelector).content.querySelector(".place__item").cloneNode(true);
   }
 
-  _handleCardLikeButton(evt) {evt.target.classList.toggle("place__btn-hart_active")};
+  _handleCardLikeButton = () => {this._element.querySelector(".place__btn-hart").classList.toggle("place__btn-hart_active")};
   _handleDeleteCardButton() {this._element.remove();}
 
   _setEventListeners() {

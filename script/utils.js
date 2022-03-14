@@ -1,5 +1,3 @@
-import Card from "./Card.js";
-
 export function openPopup(popup) {
   popup.classList.add("popup_active");
   popup.addEventListener("click", handleOverlayClick);

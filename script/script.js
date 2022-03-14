@@ -8,7 +8,7 @@ const settings = {
   submitButtonSelector: ".popup__btn",
   inactiveButtonClass: "popup__btn_inactive",
   inputErrorClass: "popup__error",
-  errorMessage: "popup__input-error_active",
+  errorMessageClass: "popup__input-error_active",
 };
 
 
@@ -73,11 +73,6 @@ const cardPreviewClose = previewCard.querySelector(".popup__close-preview");
 
 //Add Button
 const addNewPlaceButton = document.querySelector(".profile__btn-add");
-
-
-// const createNewPlaceButton = document.querySelector(".popup__btn-create");
-
-// const newPlaceForm = document.querySelector("#newPlaceForm");
 
 const cardSelector = "#place-template";
 
