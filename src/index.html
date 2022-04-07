@@ -5,30 +5,29 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Sprint4: Around The U.S.</title>
-    <link rel="stylesheet" href="pages/style.css" />
   </head>
   <body class="body">
     <header class="header">
-      <img src="images/Header-logo.svg" alt="Around the U.S." class="header__logo"/>
+      <img src="<%= require('./images/Header-logo.svg')%>" alt="Around the U.S." class="header__logo"/>
     </header>
 
     <main class="main">
 
       <section class="profile"> 
         <div class="profile-wrapper">
-            <img src="images/user-img.jpg" alt="User's profile image" class="profile__image">
+            <img src="<%= require('./images/user-img.jpg')%>" alt="User's profile image" class="profile__image">
           <div class="profile__info">
             <div class="profile__content">
               <h1 class="profile__name" id="heroName">Jacques Cousteau</h1>
               <button type="button" class="button profile__btn-edit" id="editButton"> 
-                <img class="profile__icon" src="images/Edit-Button.svg" alt="Edit">
+                <img class="profile__icon" src="<%= require('./images/Edit-Button.svg')%>" alt="Edit">
               </button>
             </div>
             <p class="profile__title" id="heroTitle">Explorer</p>
           </div>
         </div>
         <button type="button" class="button profile__btn-add">
-          <img src="images/plusButton.svg" alt="A white plus sign">
+          <img src="<%= require('./images/plusButton.svg')%>" alt="A white plus sign">
         </button>          
       </section>
 
@@ -125,6 +124,5 @@
       </article>
     </template>
 
-    <script src="script/script.js" defer type="module"></script>
   </body>
 </html>
