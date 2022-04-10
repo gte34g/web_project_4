@@ -15,8 +15,8 @@ import UserInfo from "./components/UserInfo.js";
 
 
 const userInfo = new UserInfo({
-    nameSelector: profileSettings.profileTitle,
-    jobSelector: profileSettings.profileDescription
+  nameSelector: profileSettings.profileTitle,
+  jobSelector: profileSettings.profileDescription,
 });
 
 const renderCard = (data) => {
@@ -38,9 +38,9 @@ const openImagePopup = (data) => { imagePopup.open(data); };
 
 const userInfoPopup = new PopupWithForm({
   popupSelector: popupSettings.editFormWindow,
-  handleFormSubmit: ( data ) => {
+  handleFormSubmit: (name, job) => {
     userInfoPopup.close();
-    userInfo.setUserInfo(data);
+    userInfo.setUserInfo(name, job);
   },
 });
 
