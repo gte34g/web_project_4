@@ -1,5 +1,5 @@
 import "./index.css";
-import Card from "../components/Card.js";
+import Card from "../components/Card";
 import FormValidator from "../components/FormValidator.js";
 import {
   initialCards,
@@ -19,8 +19,17 @@ const userInfo = new UserInfo({
   jobSelector: profileSettings.profileDescription,
 });
 
+// const renderCard = (data) => {
+//   const card = new Card(data, cardsSettings.cardSelector, imagePopup.open);
+//   cardsList.addItem(card.generateCard());
+// };
+
+
+
 const renderCard = (data) => {
-  const card = new Card(data, cardsSettings.cardSelector, imagePopup.open);
+  const card = new Card(data, cardsSettings.cardSelector, () => {
+    imagePopup.open({ link: data.link, title: data.name })
+  });
   cardsList.addItem(card.generateCard());
 };
 
@@ -45,8 +54,8 @@ const userInfoPopup = new PopupWithForm({
 
 const newCardPopup = new PopupWithForm({
   popupSelector: popupSettings.cardFromWindow,
-  handleFormSubmit: (data) => {
-    renderCard(data);
+  handleFormSubmit: (item) => {
+    renderCard(item);
   },
 });
 

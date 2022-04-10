@@ -38,6 +38,7 @@ export const popupSettings = {
   imageWindow: ".popup-preview",
   editFormWindow: "#popup",
   cardFromWindow: ".popup_add_place",
+  
 };
 
 export const profileSettings = {
