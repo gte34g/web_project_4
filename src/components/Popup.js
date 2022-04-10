@@ -24,11 +24,7 @@ export default class Popup {
     });
   }
   
-  _handleOverlayClick(evt) {
-    if (evt.target === this.popupElement) {
-      this.close();
-    }
-  }
+
   open() {
     this.popupElement.classList.add("popup_active");
     document.addEventListener("keyup", this._handleEscUp);

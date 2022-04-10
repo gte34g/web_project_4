@@ -1,17 +1,17 @@
-import "./pages/style.css";
-import Card from "./components/Card.js";
-import FormValidator from "./components/FormValidator.js";
+import "./index.css";
+import Card from "../components/Card.js";
+import FormValidator from "../components/FormValidator.js";
 import {
   initialCards,
   settings,
   popupSettings,
   profileSettings,
   cardsSettings,
-} from "./utils/constants.js";
-import PopupWithForm from "./components/PopupWithForm.js";
-import PopupWithImage from "./components/PopupWithImage.js";
-import Section from "./components/Section.js";
-import UserInfo from "./components/UserInfo.js";
+} from "../utils/constants.js";
+import PopupWithForm from "../components/PopupWithForm.js";
+import PopupWithImage from "../components/PopupWithImage.js";
+import Section from "../components/Section.js";
+import UserInfo from "../components/UserInfo.js";
 
 
 const userInfo = new UserInfo({
@@ -34,13 +34,12 @@ const cardsList = new Section(
 
 
 const imagePopup = new PopupWithImage(popupSettings.imageWindow);
-const openImagePopup = (data) => { imagePopup.open(data); };
 
 const userInfoPopup = new PopupWithForm({
   popupSelector: popupSettings.editFormWindow,
-  handleFormSubmit: (name, job) => {
+  handleFormSubmit: (fromData) => {
     userInfoPopup.close();
-    userInfo.setUserInfo(name, job);
+    userInfo.setUserInfo(fromData);
   },
 });
 
@@ -51,7 +50,7 @@ const newCardPopup = new PopupWithForm({
   },
 });
 
-cardsList.renderer(initialCards);
+cardsList.renderItems();
 
 const profileFormValidator = new FormValidator(settings, userInfoPopup.popupElement);
 const placeFormValidator = new FormValidator(settings, newCardPopup.popupElement);
@@ -68,7 +67,7 @@ const openProfileForm = document.querySelector(".profile__btn-edit");
 const openPlaceForm = document.querySelector(".profile__btn-add");
 const openProfileWithInfo = () => {
   userInfoPopup.open();
-  userInfoPopup.formData(userInfo.getUserInfo());
+  userInfoPopup.setFormData(userInfo.getUserInfo());
   profileFormValidator.resetValidation();
 }
 
