@@ -19,24 +19,23 @@ const userInfo = new UserInfo({
   jobSelector: profileSettings.profileDescription,
 });
 
-// const renderCard = (data) => {
-//   const card = new Card(data, cardsSettings.cardSelector, imagePopup.open);
-//   cardsList.addItem(card.generateCard());
-// };
-
-
-
 const renderCard = (data) => {
   const card = new Card(data, cardsSettings.cardSelector, () => {
-    imagePopup.open({ link: data.link, title: data.name })
+    imagePopup.open({name: data.name, link: data.link });
   });
-  cardsList.addItem(card.generateCard());
+  return card.generateCard();
 };
 
 const cardsList = new Section(
   {
     items: initialCards,
-    renderer: renderCard,
+    renderer: (data) => {
+      const cardItems = {
+        name: data.name,
+        link: data.link,
+      };
+      cardsList.addItem(renderCard(cardItems));
+    },
   },
   cardsSettings.placeSection
 );
@@ -46,19 +45,19 @@ const imagePopup = new PopupWithImage(popupSettings.imageWindow);
 
 const userInfoPopup = new PopupWithForm({
   popupSelector: popupSettings.editFormWindow,
-  handleFormSubmit: (fromData) => {
+  handleFormSubmit: (data) => {
     userInfoPopup.close();
-    userInfo.setUserInfo(fromData);
+    userInfo.setUserInfo(data);
   },
 });
 
 const newCardPopup = new PopupWithForm({
   popupSelector: popupSettings.cardFromWindow,
-  handleFormSubmit: (item) => {
-    renderCard(item);
+  handleFormSubmit: (data) => {
+    renderCard(data);
+    newCardPopup.close();
   },
 });
-
 cardsList.renderItems();
 
 const profileFormValidator = new FormValidator(settings, userInfoPopup.popupElement);

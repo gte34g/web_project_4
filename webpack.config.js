@@ -21,7 +21,7 @@ module.exports = {
   devServer: {
     static: path.resolve(__dirname, "./dist"), // specifies a folder from where to serve the application and its contents
     compress: true, // this will speed up file loading in development mode
-    port: 8080, // will open your site at localhost:8080 (you can use another port)
+    port: 6060, // will open your site at localhost:8080 (you can use another port)
     open: true, // site will open automatically in the browser after executing npm run dev
   }, // add development mode here like this
   module: {

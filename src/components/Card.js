@@ -1,4 +1,3 @@
-
 export default class Card {
   constructor(data, cardSelector, onImageClick) {
     this._title = data.name;
@@ -10,7 +9,9 @@ export default class Card {
   }
 
   _getTemplate() {
-    const cardElement = document.querySelector(this._cardSelector).content.querySelector(".place__item")
+    const cardElement = document
+      .querySelector(this._cardSelector)
+      .content.querySelector(".place__item")
       .cloneNode(true);
 
     return cardElement;
@@ -22,7 +23,9 @@ export default class Card {
   }
 
   _handleLikeButton() {
-    this._element.querySelector(".place__btn-hart").classList.toggle("place__btn-hart_active");
+    this._element
+      .querySelector(".place__btn-hart")
+      .classList.toggle("place__btn-hart_active");
   }
 
   _handlePreviewImage() {
@@ -30,11 +33,17 @@ export default class Card {
   }
 
   _setEventListeners() {
-    this._element.querySelector(".place__btn-trash").addEventListener("click", () => this._handleDeleteCardButton());
+    this._element
+      .querySelector(".place__btn-trash")
+      .addEventListener("click", () => this._handleDeleteCardButton());
 
-    this._element.querySelector(".place__btn-hart").addEventListener("click", () => this._handleLikeButton());
+    this._element
+      .querySelector(".place__btn-hart")
+      .addEventListener("click", () => this._handleLikeButton());
 
-    this._element.querySelector(".place__image").addEventListener("click", () => this._handlePreviewImage());
+    this._element
+      .querySelector(".place__image")
+      .addEventListener("click", () => this._handlePreviewImage());
   }
 
   generateCard() {
