@@ -21,7 +21,7 @@ const userInfo = new UserInfo({
 
 const renderCard = (data) => {
   const card = new Card(data, cardsSettings.cardSelector, () => {
-    imagePopup.open({name: data.name, link: data.link });
+    imagePopup.open(data);
   });
   return card.generateCard();
 };
@@ -29,17 +29,10 @@ const renderCard = (data) => {
 const cardsList = new Section(
   {
     items: initialCards,
-    renderer: (data) => {
-      const cardItems = {
-        name: data.name,
-        link: data.link,
-      };
-      cardsList.addItem(renderCard(cardItems));
-    },
+    renderer: (data) => cardsList.addItem(renderCard(data))
   },
   cardsSettings.placeSection
 );
-
 
 const imagePopup = new PopupWithImage(popupSettings.imageWindow);
 
@@ -54,7 +47,7 @@ const userInfoPopup = new PopupWithForm({
 const newCardPopup = new PopupWithForm({
   popupSelector: popupSettings.cardFromWindow,
   handleFormSubmit: (data) => {
-    renderCard(data);
+    cardsList.addItem(renderCard(data));
     newCardPopup.close();
   },
 });

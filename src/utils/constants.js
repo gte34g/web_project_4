@@ -38,7 +38,6 @@ export const popupSettings = {
   imageWindow: ".popup-preview",
   editFormWindow: "#popup",
   cardFromWindow: ".popup_add_place",
-  
 };
 
 export const profileSettings = {
@@ -49,4 +48,9 @@ export const profileSettings = {
 export const cardsSettings = {
   cardSelector: "#place-template",
   placeSection: ".photo-grid",
+};
+
+export const inputValueImage = {
+  placeName: "#input-place",
+  placeLink: "#input-url",
 };
