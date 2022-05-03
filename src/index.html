@@ -15,15 +15,17 @@
 
       <section class="profile"> 
         <div class="profile-wrapper">
-            <img src="<%= require('./images/user-img.jpg')%>" alt="User's profile image" class="profile__image">
+          <button type="button" class="button profile__btn-avatar">
+            <img src="#" alt="User's profile image" class="profile__image" name="avatarSrc">
+          </button>
           <div class="profile__info">
             <div class="profile__content">
-              <h1 class="profile__name" id="heroName">Jacques Cousteau</h1>
+              <h1 class="profile__name" id="heroName"></h1>
               <button type="button" class="button profile__btn-edit" id="editButton"> 
                 <img class="profile__icon" src="<%= require('./images/Edit-Button.svg')%>" alt="Edit">
               </button>
             </div>
-            <p class="profile__title" id="heroTitle">Explorer</p>
+            <p class="profile__title" id="heroTitle"></p>
           </div>
         </div>
         <button type="button" class="button profile__btn-add">
@@ -105,6 +107,8 @@
             </div>        
       </div>
 
+<!-- PREVIEW IMAGE -->
+
       <section class="popup popup-preview">
         <div class="popup__content popup__window-large">
           <button type="button" class="button popup__btn-close popup__close-preview">&#10006;</button>
@@ -113,13 +117,55 @@
         </div>
       </section>
 
+<!-- END OF PREVIEW IMAGE -->
+
+<!-- CHANGE AVATAR -->
+
+      <section class="popup popup-avatar">
+        <div class="popup__content">
+          <form class="form popup__form popup__form-avatar" name="changeAvatar">
+            <h2 class="popup__header">Change profile picture</h2>
+            <button type="button" class="button popup__btn-close">&#10006;</button>
+            <input
+              type="url"
+              name="avatar"
+              id="avatar-url"
+              class="popup__input-text popup__input"
+              placeholder="Image link"
+              required
+            >
+            <span class="popup__error popup__input-error" id="avatar-url-error"></span>
+            <button type="submit" class="button popup__btn">Save</button>
+          </form>
+        </div>
+      </section>
+
+<!-- END OF CHANGE AVATAR -->
+
+<!-- DELETE IMAGE -->
+
+      <section class="popup popup-confirm-delete">
+        <div class="popup__content">
+          <form class="form popup__form" name="confirmDelete">
+            <h2 class="popup__header">Are you sure?</h2>
+            <button type="button" class="button popup__btn-close">&#10006;</button>
+            <button type="submit" class="button popup__btn popup__btn-create">Yes</button>
+          </form>
+        </div>
+      </section>
+
+<!-- END OF DELETE IMAGE -->
+
     <template id="place-template">
       <article class="place__item">
         <button class="place__btn-trash" type="button"></button>
         <img class="place__image" src=" " alt=""/>
         <div class="place__info">
           <h3 class="place__text"></h3>
-          <button type="button" class="place__btn-hart"></button>
+          <div class="likes-wrapper">
+            <button type="button" class="place__btn-hart"></button>
+            <span class="place__hart-counts"></span>
+          </div>
         </div>
       </article>
     </template>

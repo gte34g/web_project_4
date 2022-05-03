@@ -20,6 +20,7 @@
 @import url(../blocks/profile/__icon/profile__icon.css);
 @import url(../blocks/profile/__btn-add/profile__btn-add.css);
 @import url(../blocks/profile/__btn-edit/profile__btn-edit.css);
+@import url(../blocks/profile/__btn-avatar/profile__btn-avatar.css);
 
 /* Form */
 @import url(../blocks/form/form.css);
@@ -59,6 +60,11 @@
 
 /* Button */
 @import url(../blocks/button/button.css);
+
+
+/* Likes */
+@import url(../blocks/likes-wrapper/likes-wrapper.css);
+
 
 /* Footer */
 @import url(../blocks/footer/footer.css);
