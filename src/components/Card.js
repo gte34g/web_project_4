@@ -69,7 +69,7 @@ export default class Card {
     return this._likes.some((person) => person._id === this._userId);
   }
 
-  likedCard(newLikes) {
+  updateLikes(newLikes) {
     this._likes = newLikes;
 
     this._element.querySelector(".place__hart-counts").textContent =
@@ -91,7 +91,7 @@ export default class Card {
 
 
       if (this.isLiked()) {
-        this.likedCard(this._likes);
+        this.updateLikes(this._likes);
       }
 
     return this._element;

@@ -18,7 +18,8 @@ export const profileSettings = {
   profileTitle: ".profile__name",
   profileDescription: ".profile__title",
   avatarPicture: ".profile__image",
-  //avatarLink: "#avatar-url",
+  profileInput: "#input-name",
+  aboutInput: "#input-about",
 };
 
 export const cardsSettings = {

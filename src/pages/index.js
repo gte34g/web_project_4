@@ -13,12 +13,15 @@ import Section from "../components/Section.js";
 import UserInfo from "../components/UserInfo.js";
 import {api} from "../components/Api.js"
 import PopupWithSubmit from "../components/PopupWithSubmit";
+import { data } from "autoprefixer";
 
 
 const userInfo = new UserInfo({
   nameSelector: profileSettings.profileTitle,
   jobSelector: profileSettings.profileDescription,
   avatarSelector: profileSettings.avatarPicture,
+  nameInput: profileSettings.profileInput,
+  jobtInbut: profileSettings.aboutInput,
 });
 
 function renderCard(data) {
@@ -32,26 +35,32 @@ function renderCard(data) {
       handleLikeButton: () => {
         const hasLiked = card.isLiked();
         if (hasLiked) {
-          api.dislikeCard(card.getId())
+          api
+            .dislikeCard(card.getId())
             .then((res) => {
-            card.likedCard(res.likes);
-          });
+              card.updateLikes(res.likes);
+            })
+            .catch((err) => console.log(err));
         } else {
-          api.likeCard(card.getId())
+          api
+            .likeCard(card.getId())
             .then((res) => {
-              card.likedCard(res.likes);
-          });
+              card.updateLikes(res.likes);
+            })
+            .catch((err) => console.log(err));
         }
       },
 
       handleDeleteCard: () => {
         confirmModal.open();
         confirmModal.setAction(() => {         
-          api.deleteCard(card.getId())
-            .then(res => {
-            card.removeCard();
-            confirmModal.close();
-          });
+          api
+            .deleteCard(card.getId())
+            .then((res) => {
+              card.removeCard();
+              confirmModal.close();
+            })
+            .catch((err) => console.log(err));
         });
       },
     },
@@ -74,9 +83,22 @@ const imagePopup = new PopupWithImage(popupSettings.imageWindow);
 const userInfoPopup = new PopupWithForm({
   popupSelector: popupSettings.editFormWindow,
   handleFormSubmit: (data) => {
-    userInfoPopup.close();
-    userInfo.setUserInfo(data);
-  },
+    api
+      .editProfile({
+        name: data.userName,
+        about: data.userTitle,
+      })
+      .then((res) => {
+        userInfo.setUserInfo({
+          userName: res.name,
+          userTitle: res.about,
+          avatarSelector: res.avatar,
+        });
+        userInfoPopup.close();
+      })
+      .catch((err) => console.log(err))
+      .finally(() => userInfoPopup.changeButtonText("Save"));
+  }
 });
 
 const newCardPopup = new PopupWithForm({
@@ -85,12 +107,15 @@ const newCardPopup = new PopupWithForm({
     
     api.createCard(data)
       .then(res => {
-     renderCard(res);
+        const newCard = renderCard(res)
+          cardsList.addItem(newCard);
+        newCardPopup.close();
       })
+      .catch((err) => console.log(err))
       .finally(() => {
         newCardPopup.changeButtonText("Save");
     })
-    newCardPopup.close();
+    
   }
 })
 
@@ -104,9 +129,9 @@ const avatarEdit = new PopupWithForm({
       .changeAvatar(data)
       .then(({ avatar }) => {
         userInfo.setUserAvatar({ avatar });
+        avatarEdit.close();
       })
       .catch((err) => console.log(err));
-    avatarEdit.close();
   },
 });
 
@@ -159,7 +184,7 @@ openPlaceForm.addEventListener('click', openEmptyPlace);
 
 
 let userId;
-Promise.all([api.getInitialCards(), api.getUserInfo(), api.changeAvatar()]).then(
+Promise.all([api.getInitialCards(), api.getUserInfo()]).then(
   ([cardData, userData]) => {
     userId = userData._id;
     cardsList.renderItems(cardData);
