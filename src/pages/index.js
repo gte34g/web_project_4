@@ -108,14 +108,11 @@ const newCardPopup = new PopupWithForm({
     api.createCard(data)
       .then(res => {
         const newCard = renderCard(res)
-          cardsList.addItem(newCard);
+        cardsList.addItem(newCard);
         newCardPopup.close();
       })
       .catch((err) => console.log(err))
-      .finally(() => {
-        newCardPopup.changeButtonText("Save");
-    })
-    
+      .finally(() => newCardPopup.changeButtonText("Save"));   
   }
 })
 
@@ -131,7 +128,10 @@ const avatarEdit = new PopupWithForm({
         userInfo.setUserAvatar({ avatar });
         avatarEdit.close();
       })
-      .catch((err) => console.log(err));
+      .catch((err) => console.log(err))
+    .finally(() => {
+      avatarEdit.changeButtonText("Save");
+    })
   },
 });
 
@@ -184,8 +184,8 @@ openPlaceForm.addEventListener('click', openEmptyPlace);
 
 
 let userId;
-Promise.all([api.getInitialCards(), api.getUserInfo()]).then(
-  ([cardData, userData]) => {
+Promise.all([api.getInitialCards(), api.getUserInfo()])
+  .then(([cardData, userData]) => {
     userId = userData._id;
     cardsList.renderItems(cardData);
 
@@ -197,5 +197,5 @@ Promise.all([api.getInitialCards(), api.getUserInfo()]).then(
     userInfo.setUserAvatar({
       avatar: userData.avatar,
     });
-  }
-);
+  })
+  .catch((err) => console.log(err));

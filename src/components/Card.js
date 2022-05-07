@@ -18,6 +18,8 @@ export default class Card {
     this._userId = userId;
 
     this._confirmDelete = data.confirmDelete
+    
+    this.likesCount = data.likes.length;
   }
 
   _getTemplate() {
@@ -71,11 +73,20 @@ export default class Card {
 
   updateLikes(newLikes) {
     this._likes = newLikes;
+    
+    //this._likeBtn.classList.toggle("place__btn-hart_active");
+    this._renderLikes();
+  }
 
-    this._element.querySelector(".place__hart-counts").textContent =
-      newLikes.length;
+  _renderLikes() {
+    const likesCount = this._likes.length;
+    this._cardLikeCounter.textContent = likesCount;
 
-    this._element.querySelector(".place__btn-hart").classList.toggle("place__btn-hart_active");
+    if (this.isLiked()) {
+      this._cardLikeButton.classList.add("place__btn-hart_active")
+    } else {
+      this._cardLikeButton.classList.remove("place__btn-hart_active");
+    }
   }
 
   generateCard() {
@@ -87,8 +98,10 @@ export default class Card {
     this._setEventListeners();
     this._deleteButton();
 
-    this._element.querySelector(".place__hart-counts").textContent = this._likes.length;
-
+    this._cardLikeCounter = this._element.querySelector(".place__hart-counts");
+    this._cardLikeButton = this._element.querySelector(".place__btn-hart");
+    
+    this._renderLikes();
 
       if (this.isLiked()) {
         this.updateLikes(this._likes);
